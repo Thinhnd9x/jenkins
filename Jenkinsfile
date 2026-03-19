@@ -7,7 +7,7 @@ pipeline {
         appName = "shoe-ShopingCart"
         appVersion = "0.0.1-SNAPSHOT"
         appType = "jar"
-        processName = "$(appName)-$(appVersion)-$(appType)"
+        processName = "$(appName)-$(appVersion).$(appType)"
         buildScript = "mvn clean install -Dskiptest"
 
     }
