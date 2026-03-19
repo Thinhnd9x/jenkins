@@ -19,7 +19,7 @@ pipeline {
         }
         stage('build'){
             steps{
-                sh(script: """ $(buildScript) """, label: "build with maven")
+                sh(script: """ ${buildScript} """, label: "build with maven")
             }
         }
     }
