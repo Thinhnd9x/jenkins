@@ -2,7 +2,7 @@ pipeline {
     agent {
       label 'node1'
     }
-    enviroment {
+    environment {
         appUser = "shoeshop"
         appName = "shoe-ShopingCart"
         appVersion = "0.0.1-SNAPSHOT"
