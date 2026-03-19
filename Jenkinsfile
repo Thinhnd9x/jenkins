@@ -19,7 +19,7 @@ pipeline {
     stages {
         stage('info') {
             steps {
-                sh(script: """ whoami;pwd;ls -la;mkdir -p ${folderDeploy} """, label: "firt stage")
+                sh(script: """ whoami;pwd;ls -la;sudo mkdir -p ${folderDeploy} """, label: "firt stage")
             }
         }
         stage('build'){
