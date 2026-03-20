@@ -31,7 +31,6 @@ pipeline {
             steps{
                 sh(script: """ ${copyScript} """, label: "copy the .jar into deploy folder")
                 sh(script: """ ${perScript} """, label: "set permission folder")
-                //sh(script: """ ${killScript} """, label: "terminate the running process")
                 sh(script: """ ${runScript} """, label: "run the project")
 
             }
