@@ -13,7 +13,7 @@ pipeline {
         copyScript = "sudo cp target/${processName} ${folderDeploy}"
         perScript = "sudo chown -R ${appUser}:${appUser} ${folderDeploy}"
         killScript = "sudo kill -9 \$(ps -ef| grep ${processName}| grep -v grep| awk '{print \$2}')"
-        runScript = 'sudo su ${appUser} -c "cd ${folderDeploy}; java -jar ${processName} > nohup.out 2>&1 &"'
+        runScript = 'sudo su ${appUser} -c "cd ${folderDeploy}; java -jar ${processName}"'
 
     }
     stages {
