@@ -12,7 +12,7 @@ pipeline {
         buildScript = "mvn clean install -Dskiptest"
         copyScript = "sudo cp target/${processName} ${folderDeploy}"
         perScript = "sudo chown -R ${appUser}:${appUser} ${folderDeploy}"
-        killScript = "sudo kill \$(ps -ef | grep ${processName} | grep -v grep | awk '{print \$2}')"
+        killScript = "sudo kill -9 \$(ps -ef| grep ${processName}| grep -v grep| awk '{print \$2}')"
         runScript = 'sudo su ${appUser} -c "cd ${folderDeploy}; java -jar ${processName} > nohup.out 2>&1 &"'
 
     }
@@ -31,6 +31,7 @@ pipeline {
             steps{
                 sh(script: """ ${copyScript} """, label: "copy the .jar into deploy folder")
                 sh(script: """ ${perScript} """, label: "set permission folder")
+                sh(script: """ ${killScript} """, label: "terminate the running process")
                 sh(script: """ ${runScript} """, label: "run the project")
 
             }
